@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Dictionary from "./Dictionary";
 import logo from "./AnnekeLogo.png";
 import "./App.css";
 
@@ -10,6 +11,9 @@ function App() {
         <img src={logo} className="App-logo img-fluid" alt="logo" />
         <div className="App-name">Dictionary Application</div>
       </header>
+      <main className="App-main">
+        <Dictionary />
+      </main>
     </div>
   );
 }

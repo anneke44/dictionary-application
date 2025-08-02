@@ -1,0 +1,16 @@
+.search-control {
+  height: 38px;
+  border-width: 1px;
+  border-color: var(--primary-color);
+  border-radius: 0.375rem;
+}
+.search-submit {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.search-submit:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
