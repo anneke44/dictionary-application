@@ -3,9 +3,17 @@ import axios from "axios";
 import Results from "./Results";
 import "./Dictionary.css";
 
-export default function Dictionary() {
-  let [keyword, setKeyword] = useState("");
+export default function Dictionary(props) {
+  let [keyword, setKeyword] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
+  let [loaded, setLoaded] = useState(false);
+
+  function search() {
+    let apiKey = "04f3tf2c9f9bboc83b5050dcf54e2f1a";
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }
 
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
@@ -13,41 +21,46 @@ export default function Dictionary() {
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    let apiKey = "04f3tf2c9f9bboc83b5050dcf54e2f1a";
-    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
-
-    axios.get(apiUrl).then(handleResponse);
+    search();
   }
   function handleResponse(response) {
     setResults(response.data);
   }
+  function load() {
+    setLoaded(true);
+    search();
+  }
 
-  return (
-    <div className="Dictionary">
-      <section>
-        <form onSubmit={handleSubmit}>
-          <div className=" d-flex align-items-center justify-content-center gap-3">
-            <div>
-              <input
-                type="search"
-                id="search-input"
-                className="search-control "
-                placeholder="Enter search..."
-                onChange={handleKeywordChange}
-              />
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <section>
+          <form onSubmit={handleSubmit}>
+            <div className=" d-flex align-items-center justify-content-center gap-3">
+              <div>
+                <input
+                  type="search"
+                  id="search-input"
+                  className="search-control "
+                  placeholder="Enter search..."
+                  onChange={handleKeywordChange}
+                />
+              </div>
+              <div>
+                <input
+                  type="submit"
+                  value="Search"
+                  className="search-submit btn"
+                />
+              </div>
             </div>
-            <div>
-              <input
-                type="submit"
-                value="Search"
-                className="search-submit btn"
-              />
-            </div>
-          </div>
-        </form>
-      </section>
-      <Results results={results} />
-    </div>
-  );
+          </form>
+        </section>
+        <Results results={results} />
+      </div>
+    );
+  } else {
+    load();
+    return "Loading...";
+  }
 }

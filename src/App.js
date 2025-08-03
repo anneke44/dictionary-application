@@ -13,7 +13,7 @@ function App() {
           <div className="App-name">Dictionary Application</div>
         </header>
         <main className="App-main">
-          <Dictionary />
+          <Dictionary defaultKeyword="dictionary" />
         </main>
       </div>
     </div>
