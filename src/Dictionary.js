@@ -35,6 +35,7 @@ export default function Dictionary(props) {
     return (
       <div className="Dictionary">
         <section>
+          <h1>What do you want to look up?</h1>
           <form onSubmit={handleSubmit}>
             <div className=" d-flex align-items-center justify-content-center gap-3">
               <div>
@@ -42,7 +43,7 @@ export default function Dictionary(props) {
                   type="search"
                   id="search-input"
                   className="search-control "
-                  placeholder="Enter search..."
+                  placeholder={props.defaultKeyword}
                   onChange={handleKeywordChange}
                 />
               </div>

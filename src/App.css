@@ -10,7 +10,7 @@ body {
 .App .container {
   max-width: 1200px;
   margin: auto;
-  padding: 20px;
+  padding: 20px 40px;
 }
 .App-logo {
   max-width: 200px;
