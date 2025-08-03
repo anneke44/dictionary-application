@@ -8,7 +8,6 @@ export default function Synonyms(props) {
         {props.synonyms.map(function (synonym, index) {
           return (
             <span key={index}>
-              {" "}
               {index > 0 ? ", " : " "}
               {synonym}
             </span>
