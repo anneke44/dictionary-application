@@ -6,7 +6,7 @@
 }
 
 .Dictionary section {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
   margin: 20px 0;
   padding: 30px 60px;
   border-radius: 0.375rem;
