@@ -25,22 +25,28 @@ export default function Dictionary() {
 
   return (
     <div className="Dictionary">
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3 d-flex align-items-center justify-content-center gap-3">
-          <div>
-            <input
-              type="search"
-              id="search-input"
-              className="search-control "
-              placeholder="Enter search..."
-              onChange={handleKeywordChange}
-            />
+      <section>
+        <form onSubmit={handleSubmit}>
+          <div className=" d-flex align-items-center justify-content-center gap-3">
+            <div>
+              <input
+                type="search"
+                id="search-input"
+                className="search-control "
+                placeholder="Enter search..."
+                onChange={handleKeywordChange}
+              />
+            </div>
+            <div>
+              <input
+                type="submit"
+                value="Search"
+                className="search-submit btn"
+              />
+            </div>
           </div>
-          <div>
-            <input type="submit" value="Search" className="search-submit btn" />
-          </div>
-        </div>
-      </form>
+        </form>
+      </section>
       <Results results={results} />
     </div>
   );
