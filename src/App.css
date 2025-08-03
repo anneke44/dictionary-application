@@ -8,9 +8,9 @@ body {
   background-color: var(--accent-color);
 }
 .App .container {
-  max-width: 1200px;
+  max-width: 960px;
   margin: auto;
-  padding: 20px 40px;
+  padding: 20px 0;
 }
 .App-logo {
   max-width: 200px;
